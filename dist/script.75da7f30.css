@@ -1,0 +1,73 @@
+/* Heading of the input */
+h4 {
+    margin: 0;
+}
+
+/* Fieldset */
+fieldset {
+    border: none;
+    display: flex;
+    flex-direction: column-reverse;
+    padding-bottom: 2rem;
+}
+
+/* Default decoration of input */
+.input {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    padding-left: 12px;
+    border-radius: 8px;
+    border: 1px solid #828282;
+    box-sizing: border-box;
+    width: calc(100% * 56 / (200 / 2));
+}
+
+/* Default decoration of input placeholder */
+.input[placeholder] {
+    font-size: 1rem;
+}
+
+/* Default decoration of input hover */
+.input:hover {
+    border-color: #333333;
+}
+
+/* Default decoration of input focus */
+.input:focus + .label {
+    color: #2962FF;
+}
+
+.input:focus {
+    outline: none !important;
+    border-color: #2962FF;
+}
+
+/* error decoration */
+.input--error {
+    border: 1px solid #D32F2F;
+}
+
+.label--error {
+ color: #D32F2F;   
+}
+
+/* Disable decoration */
+.input:disabled {
+    background: #F2F2F2;
+    border: none;
+}
+
+/* Hyper text */
+.input--hyperText {
+    border: 1px solid #828282;
+}
+
+.input--hyperText:focus + .label {
+    color: #333333;
+}
+
+.input--hyperText:focus {
+    border-color: #333333;
+}
+
+/*# sourceMappingURL=/script.75da7f30.css.map */
