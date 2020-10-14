@@ -8,14 +8,15 @@ function Input(props) {
     if (props.error) {
         inputClasses = `${inputClasses} input-error`
         labelClasses = `${labelClasses} label-error`
-        elError = <small>{props.helperText}</small>
     }
 
     if (props.helperText) {
         inputClasses = `${inputClasses} input-helperText`
         labelClasses = `${labelClasses} label-helperText`
+        elError = <small className='small-err'>{props.helperText}</small>
     }
 
+    
     if (props.startIcon) { 
         inputClasses = `${inputClasses} input-icon start-icon`
     }

@@ -47,6 +47,11 @@ fieldset {
 /* error decoration */
 .input-error {
     border: 1px solid #D32F2F;
+    color: #D32F2F;
+}
+.input-error {
+    border: 1px solid #D32F2F;
+    color: #D32F2F;
 }
 
 .label-error {
@@ -79,7 +84,6 @@ fieldset {
 small {
     position: absolute;
     top: 70%;
-    color: #D32F2F;
 }
 
 .input-helperText {
