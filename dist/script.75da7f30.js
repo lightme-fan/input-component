@@ -28298,48 +28298,57 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function Input(props) {
-  var phoneIcon = /*#__PURE__*/_react.default.createElement("svg", {
-    xmlns: "http://www.w3.org/2000/svg",
-    height: "24",
-    viewBox: "0 0 24 24",
-    width: "24"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    d: "M0 0h24v24H0z",
-    fill: "none"
-  }), /*#__PURE__*/_react.default.createElement("path", {
-    d: "M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"
-  }));
+  var inputClasses = props.variant ? "input input-".concat(props.variant) : 'input';
+  var labelClasses = props.variant ? "label $label-".concat(props.variant) : 'label';
+  var elError;
 
-  var lockedIcon = /*#__PURE__*/_react.default.createElement("svg", {
-    class: "w-6 h-6",
-    fill: "none",
-    stroke: "currentColor",
-    viewBox: "0 0 24 24",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, /*#__PURE__*/_react.default.createElement("path", {
-    "stroke-linecap": "round",
-    "stroke-linejoin": "round",
-    "stroke-width": "2",
-    d: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-  }));
-
-  var inputClasses = props.variant ? "input input--".concat(props.variant) : 'input';
-  var labelClasses = props.variant ? "label $label--".concat(props.variant) : 'label';
-
-  if (props.err) {
-    inputClasses = "".concat(inputClasses, " input--error");
+  if (props.error) {
+    inputClasses = "".concat(inputClasses, " input-error");
+    labelClasses = "".concat(labelClasses, " label-error");
+    elError = /*#__PURE__*/_react.default.createElement("small", null, props.helperText);
   }
 
   if (props.helperText) {
-    inputClasses = "".concat(inputClasses, " input--").concat(props.helperText);
+    inputClasses = "".concat(inputClasses, " input-helperText");
+    labelClasses = "".concat(labelClasses, " label-helperText");
   }
 
-  return /*#__PURE__*/_react.default.createElement("fieldset", null, /*#__PURE__*/_react.default.createElement("input", {
+  if (props.startIcon) {
+    inputClasses = "".concat(inputClasses, " input-icon start-icon");
+  }
+
+  if (props.endIcon) {
+    inputClasses = "".concat(inputClasses, " end-icon input-icon");
+  }
+
+  if (props.value) {
+    inputClasses = "".concat(inputClasses, " input-").concat(props.value);
+    labelClasses = "".concat(labelClasses, " label-").concat(props.value);
+  }
+
+  if (props.size) {
+    inputClasses = "".concat(inputClasses, " input-").concat(props.size);
+  }
+
+  if (props.fullWidth) {
+    inputClasses = "".concat(inputClasses, " input-fullWidth");
+  }
+
+  var element = /*#__PURE__*/_react.default.createElement("input", {
     className: inputClasses,
     type: "text",
-    placeholder: "\n                    Placeholder\n                ",
-    disabled: props.disabled
-  }), /*#__PURE__*/_react.default.createElement("label", {
+    placeholder: "Placeholder",
+    disabled: props.disabled,
+    value: props.value
+  });
+
+  if (props.multiple) {
+    element = /*#__PURE__*/_react.default.createElement("textarea", {
+      rows: props.row
+    }, props.chidren === 'Placeholder' ? '' : 'Placeholder');
+  }
+
+  return /*#__PURE__*/_react.default.createElement("fieldset", null, element, elError, /*#__PURE__*/_react.default.createElement("label", {
     className: labelClasses
   }, "Label"));
 }
@@ -28418,7 +28427,7 @@ var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/App.js":[function(require,module,exports) {
+},{"./icons\\phone.svg":[["phone.00c8e429.svg","icons/phone.svg"],"icons/phone.svg"],"./icons\\padlock.svg":[["padlock.77280f45.svg","icons/padlock.svg"],"icons/padlock.svg"],"_css_loader":"../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"components/App.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28439,10 +28448,30 @@ function App() {
     error: true
   })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input disabled />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
     disabled: true
-  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input helperText="Some interesting text" />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+  })), /*#__PURE__*/_react.default.createElement("div", {
+    className: "helper-text"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input helperText="Some interesting text" />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
     helperText: "Some interesting text"
-  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input helperText="Some interesting text" />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
-    helperText: "Some interesting text"
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input helperText="Some interesting text" error/>'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    helperText: "Some interesting text",
+    error: true
+  }))), /*#__PURE__*/_react.default.createElement("div", {
+    className: "icons"
+  }, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input startIcon />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    startIcon: true
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input EndIcon />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    endIcon: true
+  }))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input value="Text" />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    value: "Text"
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input size="sm" />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    size: "sm"
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input size="md" />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    size: "md"
+  }))), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input fullWidth />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    fullWidth: true
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("h4", null, '<Input multiple />'), /*#__PURE__*/_react.default.createElement(_Input.default, {
+    multiple: true,
+    row: "4"
   })));
 }
 
@@ -28488,7 +28517,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58723" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64259" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

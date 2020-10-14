@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/onja-org/input-component#readme",
   "dependencies": {
+    "icons": "^1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }

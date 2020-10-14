@@ -9,22 +9,24 @@ fieldset {
     display: flex;
     flex-direction: column-reverse;
     padding-bottom: 2rem;
+    position: relative;
 }
 
 /* Default decoration of input */
-.input {
+.input, textarea {
     padding-top: 18px;
     padding-bottom: 18px;
     padding-left: 12px;
     border-radius: 8px;
     border: 1px solid #828282;
     box-sizing: border-box;
-    width: calc(100% * 56 / (200 / 2));
+    width: 200px;
 }
 
 /* Default decoration of input placeholder */
 .input[placeholder] {
     font-size: 1rem;
+    text-align: start;
 }
 
 /* Default decoration of input hover */
@@ -33,22 +35,38 @@ fieldset {
 }
 
 /* Default decoration of input focus */
-.input:focus + .label {
-    color: #2962FF;
-}
-
 .input:focus {
     outline: none !important;
     border-color: #2962FF;
 }
 
+.input:focus + .label {
+    color: #2962FF;
+}
+
 /* error decoration */
-.input--error {
+.input-error {
     border: 1px solid #D32F2F;
 }
 
-.label--error {
+.label-error {
  color: #D32F2F;   
+}
+
+.input-error:hover + small + .label {
+    color: #333333;
+}
+
+.input-error:focus{
+    border-color: #D32F2F;
+}
+
+.input-error:focus + small {
+    color: #D32F2F;
+}
+
+.input-error:focus + small + .label {
+    color: #D32F2F;
 }
 
 /* Disable decoration */
@@ -58,14 +76,107 @@ fieldset {
 }
 
 /* Hyper text */
-.input--hyperText {
-    border: 1px solid #828282;
+small {
+    position: absolute;
+    top: 70%;
+    color: #D32F2F;
 }
 
-.input--hyperText:focus + .label {
+.input-helperText {
+    width: 100%;
+}
+
+.input-helperText:focus {
+    border-color: #333333;
+}
+
+.input-helperText:focus + .label {
     color: #333333;
 }
 
-.input--hyperText:focus {
+/* HelperText and icons */
+.helper-text, .icons {
+    display: flex;
+    width: 100%;
+}
+
+.helper-text > div, .icons > div {
+    margin-right: 10%;
+}
+
+/* Value  */
+.input-Text:focus {
+    border-color: #333333;;
+}
+
+.input-Text:focus + .label {
+    color: #333333;;
+}
+/* Icons */
+.input-icon:focus {
     border-color: #333333;
+}
+
+.input-icon:focus + .label{
+    border-color: #333333;
+}
+
+.start-icon {
+    padding-left: 60px;
+    background-image: url('./icons/phone.svg');
+    background-repeat: no-repeat;
+    background-position: 10% 50%;
+    width: 100%;
+}
+
+.end-icon {
+    background-image: url('./icons/padlock.svg');
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
+    width: 100%;
+}
+
+/* Input size */
+.input-sm {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.input-sm:focus {
+    border-color: #333333;
+}
+
+.input-sm:focus + .label {
+    color: #333333;
+}
+
+.input-md {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.input-md:focus {
+    border-color: #333333;
+}
+
+.input-md:focus + .label {
+    color: #333333;
+}
+
+/* input full Width */
+.input-fullWidth {
+    width: 100%;
+}
+
+.input-fullWidth:focus {
+    border-color: #333333;
+}
+
+.input-fullWidth:focus + .label {
+    color: #333333;
+}
+
+/* Textarea */
+textarea {
+    font-size: 1rem;
 }
