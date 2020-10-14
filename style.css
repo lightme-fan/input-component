@@ -27,6 +27,7 @@ fieldset {
 .input[placeholder] {
     font-size: 1rem;
     text-align: start;
+    opacity: 0.5;
 }
 
 /* Default decoration of input hover */
@@ -44,34 +45,20 @@ fieldset {
     color: #2962FF;
 }
 
-/* error decoration */
-.input-error {
-    border: 1px solid #D32F2F;
-    color: #D32F2F;
-}
-.input-error {
-    border: 1px solid #D32F2F;
-    color: #D32F2F;
+/* error */
+.input-error:hover {
+    border-color: #333333;
 }
 
-.label-error {
- color: #D32F2F;   
-}
-
-.input-error:hover + small + .label {
-    color: #333333;
-}
-
-.input-error:focus{
+.input-error, 
+.input-error:focus {
     border-color: #D32F2F;
 }
 
-.input-error:focus + small {
-    color: #D32F2F;
-}
-
-.input-error:focus + small + .label {
-    color: #D32F2F;
+.label-error, 
+.input-error + small,
+.input-error:focus + .label-error {
+    color: #D32F2F;   
 }
 
 /* Disable decoration */
@@ -80,22 +67,15 @@ fieldset {
     border: none;
 }
 
-/* Hyper text */
+/* Small */
 small {
     position: absolute;
     top: 70%;
 }
 
+/* Hyper text */
 .input-helperText {
     width: 100%;
-}
-
-.input-helperText:focus {
-    border-color: #333333;
-}
-
-.input-helperText:focus + .label {
-    color: #333333;
 }
 
 /* HelperText and icons */
@@ -108,23 +88,27 @@ small {
     margin-right: 10%;
 }
 
-/* Value  */
-.input-Text:focus {
+/* Input focus */
+.input-Text:focus,
+.input-icon:focus,
+.input-sm:focus,
+.input-md:focus,
+.input-fullWidth:focus,
+.input-helperText:focus {
     border-color: #333333;;
 }
 
-.input-Text:focus + .label {
+/* Label */
+.input-error:hover + .label,
+.input-Text:focus + .label,
+.input-sm:focus + .label,
+.input-md:focus + .label,
+.input-fullWidth:focus + .label,
+.input-helperText:focus + .label {
     color: #333333;;
 }
-/* Icons */
-.input-icon:focus {
-    border-color: #333333;
-}
 
-.input-icon:focus + .label{
-    border-color: #333333;
-}
-
+/* Start icon */
 .start-icon {
     padding-left: 60px;
     background-image: url('./icons/phone.svg');
@@ -133,6 +117,7 @@ small {
     width: 100%;
 }
 
+/* End icon */
 .end-icon {
     background-image: url('./icons/padlock.svg');
     background-repeat: no-repeat;
@@ -146,38 +131,14 @@ small {
     padding-bottom: 10px;
 }
 
-.input-sm:focus {
-    border-color: #333333;
-}
-
-.input-sm:focus + .label {
-    color: #333333;
-}
-
 .input-md {
     padding-top: 18px;
     padding-bottom: 18px;
 }
 
-.input-md:focus {
-    border-color: #333333;
-}
-
-.input-md:focus + .label {
-    color: #333333;
-}
-
 /* input full Width */
 .input-fullWidth {
     width: 100%;
-}
-
-.input-fullWidth:focus {
-    border-color: #333333;
-}
-
-.input-fullWidth:focus + .label {
-    color: #333333;
 }
 
 /* Textarea */
